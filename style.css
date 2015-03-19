@@ -44,11 +44,15 @@
 body {
     margin: 2em auto;
     max-width: 720px;
+    width: 100%;
     line-height: 1.6;
     font-family: 'Libre Baskerville', serif;
 }
+html {
+    padding: 2em;
+}
 
-p, li {
+body > p, body > blockquote, body > ul {
     font-size: 0.8em; /* Libre Baskerville is huge */
 }
 
@@ -99,9 +103,6 @@ div#TOC, nav#TOC
     font-size: 0.9em;
     line-height: 1.4;
     }
-div#TOC li, nav#TOC li {
-    font-size: 1em; /* Undo shrinking for Libre Baskerville */
-}
 
 @media print
     {
