@@ -22,14 +22,16 @@ do
     done
     cd $OLDPWD
 
-    # Compile the notes.
-    # Replaces references to svg files with pdf references.
     cd $1
 
     # Insert pagebreaks between documents.
     for f in *.md; do
         sed '$a\'$'\n''\\pagebreak'$'\n' "$f"
-    done | sed "s/\(!\[.*\](.*.\)svg\()\)/\1pdf\2/g" | pandoc -s --mathjax --toc -o $OLDPWD/$2
+
+    # Compile the notes.
+    # Remove newcommands (you should consolidate them elsewhere, see README.md)
+    # Replaces references to svg files with pdf references.
+    done | sed "s/^\\\newcommand.*//g" | sed "s/\(!\[.*\](.*.\)svg\()\)/\1pdf\2/g" | pandoc -s --mathjax -o $OLDPWD/$2
     cd $OLDPWD
 
     echo "Compiled."
