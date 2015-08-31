@@ -31,7 +31,7 @@ do
     # Compile the notes.
     # Remove newcommands (you should consolidate them elsewhere, see README.md)
     # Replaces references to svg files with pdf references.
-    done | sed "s/^\\\newcommand.*//g" | sed "s/\(!\[.*\](.*.\)svg\()\)/\1pdf\2/g" | pandoc -s --mathjax -o $OLDPWD/$2
+    done | sed "s/^\\\newcommand.*//g" | sed "s/\(!\[.*\](.*.\)svg\()\)/\1pdf\2/g" | pandoc -s --latex-engine=xelatex --template=template.latex --mathjax -o $OLDPWD/$2
     cd $OLDPWD
 
     echo "Compiled."
