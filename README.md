@@ -53,15 +53,17 @@ Linux (using `apt`):
 - don't have line breaks in your mathjax blocks, latex will fail on them
 - if you have any `newcommand`s, include them in the individual markdown files that need them. The script will automatically remove these (since redundant ones mess up latex), so also set up a yaml header for pandoc to use in one of your markdown files, for example:
 
-    ---
-    title: Artificial Intelligence Notes
-    author: Francis Tseng
-    header-includes:
-        - \newcommand{\argmax}{\operatorname*{argmax}}
-        - \newcommand{\argmin}{\operatorname*{argmin}}
-    toc: yes
-    abstract: "This is my abstract"
-    ---
+```
+---
+title: Artificial Intelligence Notes
+author: Francis Tseng
+header-includes:
+    - \newcommand{\argmax}{\operatorname*{argmax}}
+    - \newcommand{\argmin}{\operatorname*{argmin}}
+toc: yes
+abstract: "This is my abstract"
+---
+```
 
 
 Refer to:
